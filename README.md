@@ -29,6 +29,7 @@ equals() y hashCode() basados en el id del producto
 Compilar y ejecutar
 Con Maven desde la raíz del proyecto:
 
+```bash
 # Compilar
 mvn compile
 
@@ -37,6 +38,23 @@ mvn exec:java -Dexec.mainClass="com.example.Main"
 
 # Compilar y ejecutar en un solo paso
 mvn compile exec:java -Dexec.mainClass="com.example.Main"
+```
+
+Ejemplo de salida esperada
+La salida en consola al ejecutar `com.example.Main` debería ser similar a:
+
+```text
+Product 1:
+ID: 1
+Name: Mouse
+
+Product 2:
+ID: 34
+Name: Keyboard
+
+Product1: Product [id=1, name='Mouse', description='Wireless mouse with high precision', price=24999.0, inStock=true]
+Product2: Product [id=34, name='Keyboard', description='Mechanical keyboard with backlight', price=45000.0, inStock=false]
+```
 Temas practicados
 Encapsulamiento (atributos privados)
 Constructores

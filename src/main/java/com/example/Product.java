@@ -3,68 +3,79 @@ package com.example;
 public class Product {
 
     private int id;
-    private String nombre;
-    private String descripcion;
-    private double precio;
+    private String name;
+    private String description;
+    private double price;
+    private boolean inStock;
 
     public Product() {
         this.id = 0;
-        this.nombre = "";
-        this.descripcion = "";
-        this.precio = 0.0;
+        this.name = "";
+        this.description = "";
+        this.price = 0.0;
+        this.inStock = false;
     }
 
-    public Product(int id, String nombre, String descripcion, double precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
+    public Product(int id, String name, String description, double price, boolean inStock) {
+        setId(id);
+        setName(name);
+        setDescription(description);
+        setPrice(price);
+        this.inStock = inStock;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isInStock() {
+        return inStock;
     }
 
     public void setId(int id) {
         if (id >= 0) {
             this.id = id;
         } else {
-            throw new IllegalArgumentException("El ID no puede ser negativo.");
+            throw new IllegalArgumentException("ID cannot be negative.");
         }
     }
 
-    public void setNombre(String nombre) {
-        if (nombre == null || nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
+    public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
         }
-        this.nombre = nombre;
+        this.name = name;
     }
 
-    public void setDescripcion(String descripcion) {
-        if (descripcion == null || descripcion.trim().isEmpty()) {
-            throw new IllegalArgumentException("La descripción no puede ser nula o vacía.");
+    public void setDescription(String description) {
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("Description cannot be null or empty.");
         }
-        this.descripcion = descripcion;
+        this.description = description;
     }
 
-    public void setPrecio(double precio) {
-        if (precio >= 0) {
-            this.precio = precio;
+    public void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
         } else {
-            throw new IllegalArgumentException("El precio no puede ser negativo.");
+            throw new IllegalArgumentException("Price cannot be negative.");
         }
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
     }
 
     @Override
@@ -82,11 +93,11 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                '}';
+        return "Product [id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", inStock=" + inStock +
+                "]";
     }
 }
